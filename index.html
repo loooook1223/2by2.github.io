@@ -3,32 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>두 자리 정수 나눗셈 계산기</title>
+    <title>22세기 스타일 나눗셈 계산기</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; }
-        input { margin: 10px; padding: 5px; }
-        button { margin: 10px; padding: 5px 10px; }
+        body {
+            background-color: #000;
+            color: #0ff;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 3em;
+            text-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #0ff;
+        }
+        .input-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+        input {
+            background-color: rgba(0, 255, 255, 0.1);
+            border: 2px solid #0ff;
+            color: #fff;
+            font-size: 1.5em;
+            padding: 15px;
+            margin: 0 10px;
+            width: 150px;
+            border-radius: 10px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        input:focus {
+            box-shadow: 0 0 15px #0ff;
+        }
+        button {
+            background-color: #0ff;
+            color: #000;
+            font-size: 1.5em;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background-color: #fff;
+            box-shadow: 0 0 20px #fff;
+        }
+        #result {
+            font-size: 1.5em;
+            margin-top: 20px;
+            text-shadow: 0 0 5px #0ff;
+        }
     </style>
 </head>
 <body>
-    <h1>두 자리 정수 나눗셈 계산기</h1>
-    <input type="number" id="numA" placeholder="A 입력 (10-99)">
-    <input type="number" id="numB" placeholder="B 입력 (10-99)">
+    <h1>22세기 나눗셈 계산기</h1>
+    <div class="input-container">
+        <input type="number" id="numA" placeholder="A 입력 (10-99)">
+        <input type="number" id="numB" placeholder="B 입력 (10-99)">
+    </div>
     <button onclick="calculate()">계산하기</button>
     <p id="result"></p>
 
     <script>
         function calculate() {
-            const a = parseInt(document.getElementById('numA').value);
-            const b = parseInt(document.getElementById('numB').value);
+            const a = parseInt(document.getElementById("numA").value);
+            const b = parseInt(document.getElementById("numB").value);
             
             if (a < 10 || a > 99 || b < 10 || b > 99) {
-                document.getElementById('result').textContent = '두 자리 정수를 입력해주세요.';
+                document.getElementById("result").textContent = '두 자리 정수를 입력해주세요.';
                 return;
             }
             
             if (b === 0) {
-                document.getElementById('result').textContent = '0으로 나눌 수 없습니다.';
+                document.getElementById("result").textContent = '0으로 나눌 수 없습니다.';
                 return;
             }
             
@@ -36,10 +92,10 @@
             const remainder = a % b;
             const decimalResult = (a / b).toFixed(2);
             
-            document.getElementById('result').innerHTML = `
+            document.getElementById("result").innerHTML = `
                 몫: ${quotient}<br>
                 나머지: ${remainder}<br>
-                소수점 결과: ${decimalResult}
+                소수점 결과: ${decimalResult}  
             `;
         }
     </script>
