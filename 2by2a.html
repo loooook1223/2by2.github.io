@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2566">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px 'Helvetica Neue'}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.0px 'Helvetica Neue'; min-height: 15.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="ko"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;두 자리 정수 나눗셈 계산기&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body { font-family: Arial, sans-serif; text-align: center; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>input { margin: 10px; padding: 5px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>button { margin: 10px; padding: 5px 10px; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1&gt;두 자리 정수 나눗셈 계산기&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="number" id="numA" placeholder="A 입력 (10-99)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="number" id="numB" placeholder="B 입력 (10-99)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button onclick="calculate()"&gt;계산하기&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p id="result"&gt;&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function calculate() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const a = parseInt(document.getElementById('numA').value);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const b = parseInt(document.getElementById('numB').value);</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (a &lt; 10 || a &gt; 99 || b &lt; 10 || b &gt; 99) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById('result').textContent = '두 자리 정수를 입력해주세요.';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (b === 0) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById('result').textContent = '0으로 나눌 수 없습니다.';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>const quotient = Math.floor(a / b);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const remainder = a % b;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const decimalResult = (a / b).toFixed(2);</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('result').innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">                </span>몫: ${quotient}&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>나머지: ${remainder}&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>소수점 결과: ${decimalResult}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>`;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
