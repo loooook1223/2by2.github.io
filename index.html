@@ -74,30 +74,30 @@
     <p id="result"></p>
 
     <script>
-        function calculate() {
-            const a = parseInt(document.getElementById("numA").value);
-            const b = parseInt(document.getElementById("numB").value);
-            
-            if (a < 10 || a > 99 || b < 10 || b > 99) {
-                document.getElementById("result").textContent = '두 자리 정수를 입력해주세요.';
-                return;
-            }
-            
-            if (b === 0) {
-                document.getElementById("result").textContent = '0으로 나눌 수 없습니다.';
-                return;
-            }
-            
-            const quotient = Math.floor(a / b);
-            const remainder = a % b;
-            const decimalResult = (a / b).toFixed(2);
-            
-            document.getElementById("result").innerHTML = `
-                몫: ${quotient}<br>
-                나머지: ${remainder}<br>
-                소수점 결과: ${decimalResult}  
-            `;
+    function calculate() {
+        const a = parseInt(document.getElementById("numA").value);
+        const b = parseInt(document.getElementById("numB").value);
+        
+        if (a < 10 || a > 99 || b < 10 || b > 99) {
+            document.getElementById("result").textContent = '두 자리 정수를 입력해주세요.';
+            return;
         }
+        
+        if (b === 0) {
+            document.getElementById("result").textContent = '0으로 나눌 수 없습니다.';
+            return;
+        }
+        
+        const quotient = Math.floor(a / b);
+        const remainder = a % b;
+        const decimalResult = (a / b).toFixed(3);  // 소숫점 셋째자리까지 반올림
+        
+        document.getElementById("result").innerHTML = `
+            몫: ${quotient}<br>
+            나머지: ${remainder}<br>
+            소수점 결과: ${decimalResult}
+        `;
+    }
     </script>
 </body>
 </html>
