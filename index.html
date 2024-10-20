@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>22세기 스타일 나눗셈 계산기</title>
+    <title>미경이와 아이들의 22세기 계산기</title>
     <style>
         body {
             background-color: #000;
@@ -18,9 +18,15 @@
             margin: 0;
             overflow: hidden;
         }
-        h1 {
-            font-size: 3em;
+        .title {
+            font-size: 2.5em;
             text-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #0ff;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            font-size: 1.2em;
+            color: #8ff;
+            margin-bottom: 20px;
         }
         .input-container {
             display: flex;
@@ -65,7 +71,9 @@
     </style>
 </head>
 <body>
-    <h1>미굥이의 22세기 나눗셈 계산기</h1>
+    <div class="title">미경이와 아이들의</div>
+    <div class="title">22세기 계산기</div>
+    <div class="subtitle">A/B의 결과를 계산</div>
     <div class="input-container">
         <input type="number" id="numA" placeholder="A 입력 (10-99)">
         <input type="number" id="numB" placeholder="B 입력 (10-99)">
@@ -74,30 +82,30 @@
     <p id="result"></p>
 
     <script>
-    function calculate() {
-        const a = parseInt(document.getElementById("numA").value);
-        const b = parseInt(document.getElementById("numB").value);
-        
-        if (a < 10 || a > 99 || b < 10 || b > 99) {
-            document.getElementById("result").textContent = '두 자리 정수를 입력해주세요.';
-            return;
+        function calculate() {
+            const a = parseInt(document.getElementById("numA").value);
+            const b = parseInt(document.getElementById("numB").value);
+            
+            if (a < 10 || a > 99 || b < 10 || b > 99) {
+                document.getElementById("result").textContent = '두 자리 정수를 입력해주세요.';
+                return;
+            }
+            
+            if (b === 0) {
+                document.getElementById("result").textContent = '0으로 나눌 수 없습니다.';
+                return;
+            }
+            
+            const quotient = Math.floor(a / b);
+            const remainder = a % b;
+            const decimalResult = (a / b).toFixed(3);
+            
+            document.getElementById("result").innerHTML = `
+                몫: ${quotient}<br>
+                나머지: ${remainder}<br>
+                소수점 결과: ${decimalResult}
+            `;
         }
-        
-        if (b === 0) {
-            document.getElementById("result").textContent = '0으로 나눌 수 없습니다.';
-            return;
-        }
-        
-        const quotient = Math.floor(a / b);
-        const remainder = a % b;
-        const decimalResult = (a / b).toFixed(3);  // 소숫점 셋째자리까지 반올림
-        
-        document.getElementById("result").innerHTML = `
-            몫: ${quotient}<br>
-            나머지: ${remainder}<br>
-            소수점 결과: ${decimalResult}
-        `;
-    }
     </script>
 </body>
 </html>
